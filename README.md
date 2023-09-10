@@ -5,3 +5,5 @@ A set of profitable and outperforming systematic trading strategies currently us
 
 ### Current implimented strategies.
 ![title](images/twoinone_labelled.png)
+
+* assuming risk free rate of 0. 
