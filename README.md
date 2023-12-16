@@ -32,6 +32,10 @@ The second strategy was discovered by myself on the 23rd of October 2023.
 
 ![title](images/csm3.png)
 
+[LHS: Perfect entry ; RHS: Adjusted slippage on $250k]
+
+Sharpe based on 0% risk free rate. 
+
 Advantages: 
 
 * As no positions is held overnight, the risk is considerably reduced. Many brokers allow up to 4x leverage on day trading, implying the strategy can be leveraged.
