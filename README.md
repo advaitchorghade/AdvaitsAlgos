@@ -5,7 +5,7 @@ A set of profitable and outperforming systematic trading strategies currently us
 
 The primary strategy used in the current market is shown below. The strategy is implimented on a basket of stocks ranging from a market cap of ~$1bln to $100bln. 
 
-### Current implimented strategies.
+### Strategy 1:
 ![title](images/twoinone_labelled.png)
 
 \* assuming risk free rate of 0. 
@@ -20,5 +20,9 @@ Advantages:
 Disadvantages:
 
 * As briefly described in the advantages - the order may not be filled at a specific price. More research needed.
-* Sharpe has been calculated with 0% interest rates - clearly not realistic. Difficulty: Interest rates have been volitile - TODO: How to calculate Sharpe with varying interest rates. 
+* Sharpe has been calculated with 0% interest rates - clearly not realistic. Difficulty: Interest rates have been volitile - TODO: How to calculate Sharpe with varying interest rates.
+
+### Strategy 2:
+
+
   
