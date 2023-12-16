@@ -32,7 +32,7 @@ The second strategy was discovered by myself on the 23rd of October 2023.
 
 ![title](images/csm3.png)
 
-[LHS: Perfect entry ; RHS: Adjusted slippage on $250k from extrapolated spread on Lvl1 data]
+[LHS: Perfect entry ; RHS: Adjusted slippage on $250k from extrapolated spread on Lvl1 data. Notice the dramatic effect on Sharpe]
 
 Sharpe based on 0% risk free rate. 
 
