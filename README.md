@@ -30,9 +30,7 @@ Disadvantages:
 
 The second strategy was discovered by myself on the 23rd of October 2023.
 
-![title](images/csm1.png)
-
-![title](images/csm2.png)
+![title](images/csm3.png)
 
 Advantages: 
 
