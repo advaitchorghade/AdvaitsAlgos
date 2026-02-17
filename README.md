@@ -1,49 +1,92 @@
 # AdvaitsAlgos
-A set of profitable and outperforming systematic trading strategies currently used by the author.  
 
-*Disclaimer: These strategies are potential source of alpha and are used in the authors current trading models. Therefore code will be limited to reduce exposure to intricate details yet still include novel and relevent details for the reader. *
+Systematic intraday trading strategies and supporting analytics
+infrastructure designed and implemented by Advait Chorghade.
 
-The primary strategy used in the current market is shown below. The strategy is implimented on a basket of stocks ranging from a market cap of ~$1bln to $100bln. 
+This repository contains performance visualisations and high-level
+architectural summaries of quantitative models developed in C++ and
+Python. Core implementation details are intentionally abstracted.
 
-### Strategy 1:
+------------------------------------------------------------------------
 
-The second strategy was discovered by myself on the 14th of April 2023. It 
+## Overview
 
-![title](images/twoinone_labelled.png)
+The strategies operate on baskets of mid- to large-cap equities
+(\~\$1bn--\$100bn market cap) and are designed for intraday execution
+with controlled risk exposure.
 
-\* assuming risk free rate of 0. 
+The broader system includes:
 
+-   Real-time data ingestion and preprocessing\
+-   Execution logic using limit-order prioritisation\
+-   Slippage and liquidity modelling\
+-   Risk and performance evaluation (Sharpe, drawdown, turnover)\
+-   Backtesting and deployment framework (C++ + Python)
 
-There are several advantages and disadvantages to this strategy. 
+All positions are intraday; no overnight exposure is taken.
 
-Advantages: 
+------------------------------------------------------------------------
 
-* Reduced risk of slippage (especially for larger cap names): The algorithm primarily uses limit orders. The algorithm takes the assumption that all shares will be filled which is not realistic with large shares. Research needs to be done to backtest the maximum amound of shares that are available during execution time. Getting historical minute candles is expensive (especially older than 1 month) which has let me to increase the order price threshold by 1 cent. Fortunately in the backtest this has had a slight impact on returns and sharpe and is still profitable.
-* As no positions is held overnight, the risk is considerably reduced. Many brokers allow up to 4x leverage on day trading, implying the strategy can be leveraged. 
+## Strategy 1 -- Intraday Mean-Reversion Framework
 
-Disadvantages:
+This strategy focuses on short-horizon inefficiencies within liquid
+equities.
 
-* As briefly described in the advantages - the order may not be filled at a specific price. More research needed.
-* Sharpe has been calculated with 0% interest rates - clearly not realistic. Difficulty: Interest rates have been volitile - TODO: How to calculate Sharpe with varying interest rates.
+Key characteristics:
 
-### Strategy 2:
+-   Intraday-only positioning\
+-   Limit-order driven execution to reduce slippage\
+-   Sensitivity to spread and liquidity conditions\
+-   Performance evaluated under varying execution assumptions
 
-The second strategy was discovered by myself on the 23rd of October 2023.
+### Considerations
 
-![title](images/csm3.png)
+-   Fill probability assumptions require stress testing\
+-   Liquidity constraints impact scalability\
+-   Sharpe ratios shown assume a 0% risk-free rate for benchmarking
+    purposes
 
-[LHS: Perfect entry ; RHS: Adjusted slippage on $250k from extrapolated spread on Lvl1 data. Notice the dramatic effect on Sharpe]
+![Strategy 1 Output](images/twoinone_labelled.png)
 
-Sharpe based on 0% risk free rate. 
+------------------------------------------------------------------------
 
-Advantages: 
+## Strategy 2 -- Liquidity-Sensitive Momentum Structure
 
-* As no positions is held overnight, the risk is considerably reduced. Many brokers allow up to 4x leverage on day trading, implying the strategy can be leveraged.
+Developed in October 2023.
 
-Disadvantages:
+This strategy exploits short-term structural price movements and
+requires rapid position accumulation.
 
-* Subject to slippage - especially in lower volume traded names.
-* Linked to above - available liquidity. The model requires accumilating large positions in a small amount of time, causing changes in the average price reducing returns.
-* Can be subject to tail risk more than strategy 1. Constant monitering will be required. 
+Key characteristics:
 
-  
+-   Intraday positioning\
+-   Execution-sensitive performance\
+-   Explicit modelling of spread and capital deployment impact
+
+The image below illustrates the difference between idealised execution
+and slippage-adjusted execution using extrapolated Level 1 spread data.
+
+![Strategy 2 Output](images/csm3.png)
+
+### Considerations
+
+-   Performance is highly sensitive to liquidity\
+-   Slippage materially impacts realised Sharpe\
+-   Tail risk exposure requires active monitoring\
+-   Benchmark Sharpe assumes 0% risk-free rate
+
+------------------------------------------------------------------------
+
+## Technical Stack
+
+-   C++ for performance-critical components\
+-   Python for orchestration, analysis, and diagnostics\
+-   Historical and real-time market data integration\
+-   Performance visualisation and evaluation tooling
+
+------------------------------------------------------------------------
+
+## Notes
+
+This repository focuses on system structure and performance diagnostics
+rather than full source implementation.
