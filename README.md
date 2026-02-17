@@ -17,10 +17,10 @@ with controlled risk exposure.
 
 The broader system includes:
 
--   Real-time data ingestion and preprocessing\
--   Execution logic using limit-order prioritisation\
--   Slippage and liquidity modelling\
--   Risk and performance evaluation (Sharpe, drawdown, turnover)\
+-   Real-time data ingestion and preprocessing
+-   Execution logic using limit-order prioritisation
+-   Slippage and liquidity modelling
+-   Risk and performance evaluation (Sharpe, drawdown, turnover)
 -   Backtesting and deployment framework (C++ + Python)
 
 All positions are intraday; no overnight exposure is taken.
@@ -34,15 +34,15 @@ equities.
 
 Key characteristics:
 
--   Intraday-only positioning\
--   Limit-order driven execution to reduce slippage\
--   Sensitivity to spread and liquidity conditions\
+-   Intraday-only positioning
+-   Limit-order driven execution to reduce slippage
+-   Sensitivity to spread and liquidity conditions
 -   Performance evaluated under varying execution assumptions
 
 ### Considerations
 
--   Fill probability assumptions require stress testing\
--   Liquidity constraints impact scalability\
+-   Fill probability assumptions require stress testing
+-   Liquidity constraints impact scalability
 -   Sharpe ratios shown assume a 0% risk-free rate for benchmarking
     purposes
 
@@ -59,8 +59,8 @@ requires rapid position accumulation.
 
 Key characteristics:
 
--   Intraday positioning\
--   Execution-sensitive performance\
+-   Intraday positioning
+-   Execution-sensitive performance
 -   Explicit modelling of spread and capital deployment impact
 
 The image below illustrates the difference between idealised execution
@@ -70,18 +70,18 @@ and slippage-adjusted execution using extrapolated Level 1 spread data.
 
 ### Considerations
 
--   Performance is highly sensitive to liquidity\
--   Slippage materially impacts realised Sharpe\
--   Tail risk exposure requires active monitoring\
+-   Performance is highly sensitive to liquidity
+-   Slippage materially impacts realised Sharpe
+-   Tail risk exposure requires active monitoring
 -   Benchmark Sharpe assumes 0% risk-free rate
 
 ------------------------------------------------------------------------
 
 ## Technical Stack
 
--   C++ for performance-critical components\
--   Python for orchestration, analysis, and diagnostics\
--   Historical and real-time market data integration\
+-   C++ for performance-critical components
+-   Python for orchestration, analysis, and diagnostics
+-   Historical and real-time market data integration
 -   Performance visualisation and evaluation tooling
 
 ------------------------------------------------------------------------
